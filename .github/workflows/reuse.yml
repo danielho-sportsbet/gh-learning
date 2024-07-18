@@ -1,0 +1,16 @@
+name: Reuse other workflow
+
+on: [workflow_dispatch]
+
+jobs:
+  call-workflows:
+    uses: ./.github/workflows/reusable.yml
+    with: 
+      who-to-greet: 'test'
+
+  use-output:
+    runs-on: ubuntu-latest
+    needs: call-workflows
+    steps:
+      - run: |
+              echo ${{ jobs.call-workflows.outputs.time }}
