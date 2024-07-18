@@ -13,4 +13,4 @@ jobs:
     needs: call-workflows
     steps:
       - run: |
-              echo ${{ jobs.call-workflows.outputs.time }}
+              echo ${{ needs.call-workflows.outputs.time }}
