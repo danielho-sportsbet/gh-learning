@@ -1,0 +1,16 @@
+name: Hello, everyone!
+description: Greet and record the time
+author: dan
+
+inputs:
+  who-to-greet: 
+    default: World
+
+outputs:
+  current-time:
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    who-to-greet: ${{ inputs.who-to-greet }}
